@@ -20,14 +20,14 @@ def sample_layout(seed):
         if np.linalg.norm(start-dock)<.65:continue
         obstacles=[]
         for _ in range(300):
-            # 障碍物位置location和尺寸size
+            # Obstacle positions and sizes.
             point=rng.uniform(-1.15,1.15,2);radius=rng.uniform(.09,.13)
             if np.linalg.norm(point-start)<radius+.32:continue
             if np.linalg.norm(point-dock)<radius+.36 or np.linalg.norm(point-approach)<radius+.33:continue
             if any(np.linalg.norm(point-p)<radius+r+.18 for p,r,_ in obstacles):continue
             # Randomly select a cylinder or a cube
             obstacles.append((point,radius,bool(rng.integers(2))))
-            # 数量
+            # Number of obstacles.
             if len(obstacles)==6:break
         if len(obstacles)<6:continue
         # Fixed demo: move one of the six obstacles onto the start-to-station line.

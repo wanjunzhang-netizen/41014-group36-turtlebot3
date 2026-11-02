@@ -16,7 +16,7 @@ def observation_model(x):
 
 # 
 class LocalEKF:
-    # 首次看到标记时，初始化小车与充电站的估计
+    # Initialize robot and station estimates at the first accepted marker observation.
     def __init__(self,measurement):
         r,b=measurement.distance,measurement.bearing
         self.x=np.array([0.,0.,0.,r*np.cos(b),r*np.sin(b)])
@@ -24,14 +24,14 @@ class LocalEKF:
         self.P=np.zeros((5,5));self.P[3:,3:]=J@measurement.covariance@J.T
         self.normal=measurement.normal.copy();self.height=measurement.height
         self.accepted=0;self.rejected=0
-    # 根据编码器预测状态和不确定性
+    # Predict the state and uncertainty from wheel encoders.
     def predict(self,reading):
         (ds,da),Q=control_increment(reading)
         Q+=np.diag([.004**2*reading.dt+(.03*abs(ds))**2,np.deg2rad(1.5)**2*reading.dt+(.08*abs(da))**2])
         F,G=jacobians(self.x[:3],ds,da);A=np.eye(5);A[:3,:3]=F
         B=np.zeros((5,2));B[:3]=G
         self.x[:3]=motion(self.x[:3],ds,da);self.P=A@self.P@A.T+B@Q@B.T
-    # 用相机距离、方位修正预测
+    # Correct the prediction using camera range and bearing.
     def update(self,m):
         R=m.covariance
         predicted,H=observation_model(self.x)

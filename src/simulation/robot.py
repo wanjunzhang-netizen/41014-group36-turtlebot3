@@ -29,10 +29,10 @@ def load_scene(scene_transform):
 
 
 def drive(data, v, omega):
-    """只允许车体前进；原地转向时两轮可以反向转动。"""
+    """The body only moves forward; the wheels may turn in opposite directions for an in-place turn."""
     if not 0 <= v <= 0.15 or abs(omega) > 0.8:
         raise ValueError("Commands must satisfy 0 <= v <= 0.15 and |omega| <= 0.8")
-    # LQR 不直接控制图片里的小车位置，而是先产生速度指令，再驱动车轮
+    # LQR produces speed commands that drive the wheels; it does not set the robot position directly.
     data.ctrl[:] = [(v - TRACK * omega / 2) / WHEEL_RADIUS,
                     (v + TRACK * omega / 2) / WHEEL_RADIUS]
 

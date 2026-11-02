@@ -4,7 +4,7 @@ Reference changes and final slowdown are docking-task adaptations.
 import numpy as np
 from src.estimation.ekf import wrap
 
-# 根据误差模型和 LQR 的 Q、R 计算反馈增益 K
+# Compute feedback gain K from the error model and LQR costs Q and R.
 def design(v=.08,dt=.05):
     # Exact ZOH of A=[[0,v],[0,0]], B=[[0],[1]], kappa=0 (A3 A.1).
     A=np.array([[1.,v*dt],[0.,1.]])
@@ -23,7 +23,7 @@ def design(v=.08,dt=.05):
     K=np.linalg.solve(R+B.T@P@B,B.T@P@A)
     return A,B,K
 
-# 计算小车相对路径段的横向误差和航向误差，输出前进速度forward speed、转向速度turning speed
+# Use lateral and heading errors relative to the path segment to produce forward and turn speeds.
 class SegmentTracker:
     def __init__(self):
         self.A,self.B,self.K=design();self.target=None;self.origin=None

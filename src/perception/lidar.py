@@ -1,4 +1,4 @@
-"""模拟器测距接口与坐标变换。只有模拟器测距内部读取真实传感器位姿。"""
+"""Range sensing and frame transforms. Only sensor simulation reads the true sensor pose."""
 from dataclasses import dataclass
 import copy
 import json
@@ -13,10 +13,10 @@ T_BL_TRANSLATION = np.array([-0.032, 0.0, 0.182])
 class Scan:
     time: float
     angles: np.ndarray
-    ranges: np.ndarray  # 有限数=回波；inf=量程内无回波；nan=无效/丢失。
+    ranges: np.ndarray  # Finite value: return; inf: no return within range; nan: invalid or missing.
     max_range: float
 
-# 将扫描结果转换成车体坐标中的点
+# Convert scan readings into points in the body frame.
 def points_body(scan):
     valid = np.isfinite(scan.ranges)
     r, a = scan.ranges[valid], scan.angles[valid]
@@ -25,13 +25,13 @@ def points_body(scan):
 
 
 def points_world_from_estimate(points_b, estimated_pose):
-    """调用者显式传入估计 [x,y,yaw]，本函数不接触模拟器真值。"""
+    """The caller supplies estimated [x,y,yaw]; this function does not access ground truth."""
     x, y, theta = estimated_pose
     c, s = np.cos(theta), np.sin(theta)
     return points_b[:, :2] @ np.array([[c, s], [-s, c]]) + [x, y]
 
 
-# 模拟激光测距，加入噪声和丢失回波
+# Simulate laser ranges with noise and missing returns.
 class SimLidar:
     def __init__(self, model, sigma=.01, dropout=.01, seed=7, max_range=6.0, calibrated=True):
         if sigma < 0 or not 0 <= dropout <= 1 or max_range <= .08:
@@ -44,7 +44,7 @@ class SimLidar:
             self.scale,self.offset=float(config['scale']),float(config['offset_m'])
             if not np.isfinite([self.scale,self.offset]).all() or self.scale<=0:
                 raise ValueError('Invalid LiDAR calibration')
-        # 射线过滤使用独立模型副本，不改变渲染/碰撞模型的显示分组。
+        # Ray filtering uses a separate model copy and leaves render/collision display groups unchanged.
         self.ray_model = copy.copy(model)
         self.robot_geoms = np.zeros(model.ngeom, dtype=bool)
         self.sigma, self.dropout, self.max_range = sigma, dropout, max_range
@@ -53,7 +53,7 @@ class SimLidar:
         self.directions = np.column_stack((np.cos(self.angles), np.sin(self.angles), np.zeros(360)))
         self.site = mujoco.mj_name2id(model, mujoco.mjtObj.mjOBJ_SITE, "lidar_frame")
         robot_id = mujoco.mj_name2id(model, mujoco.mjtObj.mjOBJ_BODY, "robot")
-        # 排除机器人整个子树，包括轮子；bodyexclude 单独不足以排除子部件。
+        # Exclude the full robot subtree, including wheels; bodyexclude alone does not exclude child bodies.
         for gid, bid in enumerate(model.geom_bodyid):
             ancestor = int(bid)
             while ancestor and ancestor != robot_id:
@@ -86,10 +86,10 @@ class SimLidar:
 def front_status(scan):
     sector = np.abs(scan.angles) <= np.deg2rad(20)
     r = scan.ranges[sector]
-    good = ~np.isnan(r)  # inf 是有效的“量程内未检测到物体”。
+    good = ~np.isnan(r)  # inf is a valid reading meaning no object was detected within range.
     if good.mean() < .8:
         return "INVALID SCAN", 0.0
-    # 中央连续盲区不能仅用整个扇区有效比例掩盖。
+    # Check for a central blind gap even when the overall sector has enough valid readings.
     middle = scan.ranges[np.abs(scan.angles) <= np.deg2rad(3)]
     if np.isnan(middle).all():
         return "INVALID SCAN", 0.0

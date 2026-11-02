@@ -18,7 +18,7 @@ def add_station(scene):
     station = ET.SubElement(world, "body", name="charging_station",pos="0 0 .16")
     ET.SubElement(station, "geom", name="dock_board", type="box", pos="0 0 -0.009",
                   size="0.12 0.12 0.008", material="tag_white")
-    # 由同一ArUco字典生成黑白格。实体格子由相机真实渲染，未向图像粘贴标记。
+    # Generate cells from the same ArUco dictionary. The camera renders real scene cells; no marker is pasted onto the image.
     bits = cv2.aruco.generateImageMarker(DICTIONARY, MARKER_ID, 6)
     cell = MARKER_SIZE/6
     for row in range(6):

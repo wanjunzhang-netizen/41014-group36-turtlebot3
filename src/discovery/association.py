@@ -14,7 +14,7 @@ class Measurement:
     residual:float
     covariance:np.ndarray
 
-# 在图片中寻找标记四个角点
+# Find the four marker corners in the image.
 def marker_corners(rgb):
     params=cv2.aruco.DetectorParameters();params.perspectiveRemovePixelPerCell=8;params.minMarkerDistanceRate=.01;params.cornerRefinementMethod=cv2.aruco.CORNER_REFINE_SUBPIX
     corners,ids,_=cv2.aruco.ArucoDetector(DICTIONARY,params).detectMarkers(cv2.cvtColor(rgb,cv2.COLOR_RGB2GRAY))

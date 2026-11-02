@@ -16,7 +16,7 @@ class Navigator:
         self.state='SEARCH';self.hold=0.;self.target=None;self.done=False
         self.visited=[];self.stall=0.
 
-    # 没找到标记时，观察周围并选择安全探索方向
+    # Before finding the marker, look around and choose a safe search direction.
     def search(self,pose,scan,dt):
         pts=points_body(scan)[:,:2]
         if not len(pts):return 0.,0.,'INVALID SCAN'
@@ -44,7 +44,7 @@ class Navigator:
         self.spin_remaining=np.pi/2
         return 0.,.45,'SEARCH: LOOK AROUND'
 
-    # 找到标记后，根据估计状态安排接近、对正、停靠
+    # After finding the marker, use the estimated state to approach, align and dock.
     def command(self,ekf,search_pose,scan,age,dt=.05):
         if self.done:return 0.,0.,'DONE'
         if ekf is None:return self.search(search_pose,scan,dt)
@@ -54,7 +54,7 @@ class Navigator:
         if not len(pts) or np.mean(~np.isnan(scan.ranges))<.8:return 0.,0.,'INVALID SCAN'
         heading=np.arctan2(-normal[1],-normal[0]);yaw_error=wrap(heading-pose[2])
         if self.state=='FINAL':
-            # 停车判定
+            # Check docking completion.
             goal=dock_target(landmark,normal)
             distance=np.linalg.norm(goal-pose[:2])
             entered=np.any(wheels_in_zone(pose,landmark))

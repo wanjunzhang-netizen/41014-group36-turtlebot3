@@ -1,4 +1,4 @@
-"""轮编码器仿真：只读轮关节传感器，不读取车体真实位姿。"""
+"""Wheel encoder simulation reads wheel sensors, not the true body pose."""
 import numpy as np
 from src.estimation.ekf import EncoderIncrement
 
