@@ -1,0 +1,13 @@
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.DS_Store
+Thumbs.db
+.pytest_cache/
+outputs/*
+!outputs/.gitkeep
+.env
+.env.*
+
+*.log

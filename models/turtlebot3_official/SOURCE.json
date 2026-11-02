@@ -1,0 +1,7 @@
+{
+  "repository": "https://github.com/ROBOTIS-GIT/turtlebot3",
+  "commit": "fc817ce3073af1d6032397c64504134882af5e9a",
+  "model": "turtlebot3_description/urdf/turtlebot3_burger.urdf",
+  "license": "Apache-2.0",
+  "mujoco_version": "3.15.0"
+}

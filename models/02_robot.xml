@@ -1,0 +1,58 @@
+<mujoco model="turtlebot3_burger">
+  <compiler angle="radian" />
+  <asset>
+    <mesh name="burger_base" content_type="model/stl" file="burger_base.stl" scale="0.001 0.001 0.001" />
+    <mesh name="left_tire" content_type="model/stl" file="left_tire.stl" scale="0.001 0.001 0.001" />
+    <mesh name="right_tire" content_type="model/stl" file="right_tire.stl" scale="0.001 0.001 0.001" />
+    <mesh name="lds" content_type="model/stl" file="lds.stl" scale="0.001 0.001 0.001" />
+  </asset>
+  <worldbody>
+    <body name="robot" pos="0 0 .002">
+      <joint name="robot_free" type="free" />
+      <body name="base_footprint">
+        <body name="base_link" pos="0 0 0.01">
+          <inertial pos="0 0 0" quat="0.994532 -0.00722134 -0.0815456 -0.0648458" mass="0.825735" diaginertia="0.00221987 0.00211778 0.00200059" />
+          <geom pos="-0.032 0 0" quat="1 0 0 0" type="mesh" contype="0" conaffinity="0" group="1" rgba="0.4 0.4 0.4 1" density="0" mesh="burger_base" />
+          <geom size="0.07 0.07 0.0715" pos="-0.032 0 0.07" type="box" rgba="0.4 0.4 0.4 1" group="3" />
+          # The wheels
+          <body name="wheel_left_link" pos="0 0.08 0.023" quat="0.707388 -0.706825 0 0">
+            <inertial pos="0 0 0" quat="-0.000890159 0.706886 0.000889646 0.707326" mass="0.0284989" diaginertia="2.07126e-05 1.11924e-05 1.11756e-05" />
+            <joint name="wheel_left_joint" damping="0.0001" armature="0.00001" />
+            <geom quat="0.707388 0.706825 0 0" type="mesh" contype="0" conaffinity="0" group="1" rgba="0.3 0.3 0.3 1" density="0" mesh="left_tire" />
+            <geom size="0.033 0.009" type="cylinder" rgba="0.3 0.3 0.3 1" group="3" friction="1 0.005 0.0001" />
+          </body>
+          <body name="wheel_right_link" pos="0 -0.08 0.023" quat="0.707388 -0.706825 0 0">
+            <inertial pos="0 0 0" quat="-0.000890159 0.706886 0.000889646 0.707326" mass="0.0284989" diaginertia="2.07126e-05 1.11924e-05 1.11756e-05" />
+            <joint name="wheel_right_joint" damping="0.0001" armature="0.00001" />
+            <geom quat="0.707388 0.706825 0 0" type="mesh" contype="0" conaffinity="0" group="1" rgba="0.3 0.3 0.3 1" density="0" mesh="right_tire" />
+            <geom size="0.033 0.009" type="cylinder" rgba="0.3 0.3 0.3 1" group="3" friction="1 0.005 0.0001" />
+          </body>
+          <body name="caster_back_link" pos="-0.081 0 -0.004" quat="0.707388 -0.706825 0 0">
+            <inertial pos="0 0 0" mass="0.005" diaginertia="0.001 0.001 0.001" />
+            <geom size="0.015 0.0045 0.01" pos="0 0.001 0" type="box" group="3" priority="1" friction="0.001 0.0001 0.0001" />
+          </body>
+          <body name="imu_link" pos="-0.032 0 0.068" />
+          <body name="base_scan" pos="-0.032 0 0.172">
+            <inertial pos="0 0 0" mass="0.114" diaginertia="0.001 0.001 0.001" />
+            <geom quat="1 0 0 0" type="mesh" contype="0" conaffinity="0" group="1" rgba="0.3 0.3 0.3 1" density="0" mesh="lds" />
+            <geom size="0.055 0.01575" pos="0.015 0 -0.0065" type="cylinder" rgba="0.3 0.3 0.3 1" group="3" />
+          </body>
+        </body>
+      </body>
+      <site name="lidar_frame" pos="-0.032 0 0.182" size="0.003" rgba="1 0.2 0.1 1" />
+      <geom name="camera_housing" type="box" pos="0.05 0 0.125" size="0.012 0.024 0.016" mass="0.015" rgba="0.7 0.2 0.2 1" />
+      <camera name="front_camera" pos="0.064 0.0 0.125" xyaxes="0.0 -1.0 0.0 -0.17364817766693033 -0.0 0.984807753012208" fovy="100.0" />
+      <site name="body_forward" type="capsule" fromto="0.01 0 0.155 0.09 0 0.155" size="0.004" rgba="1 0.1 0.1 1" />
+    </body>
+  </worldbody>
+  <actuator>
+    <velocity name="left_motor" joint="wheel_left_joint" kv="0.03" ctrllimited="true" ctrlrange="-8 8" forcelimited="true" forcerange="-0.2 0.2" />
+    <velocity name="right_motor" joint="wheel_right_joint" kv="0.03" ctrllimited="true" ctrlrange="-8 8" forcelimited="true" forcerange="-0.2 0.2" />
+  </actuator>
+  <sensor>
+    <jointpos name="left_encoder" joint="wheel_left_joint" />
+    <jointvel name="left_wheel_speed" joint="wheel_left_joint" />
+    <jointpos name="right_encoder" joint="wheel_right_joint" />
+    <jointvel name="right_wheel_speed" joint="wheel_right_joint" />
+  </sensor>
+</mujoco>

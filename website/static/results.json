@@ -1,0 +1,292 @@
+[
+  {
+    "charging_zone_entered": true,
+    "wheel_contact_distances_m": [
+      0.18075517797295496,
+      0.18760548664284932,
+      0.19678030270912908,
+      0.18837694532144036
+    ],
+    "zone_center_distance_m": 0.17029866007586936,
+    "zone_radius_m": 0.2,
+    "seed": 0,
+    "lidar_sigma": 0.006,
+    "camera_dropout_duration": 0.0,
+    "completed": true,
+    "collision": false,
+    "duration_s": 67.15000000002374,
+    "anchor_time_s": 28.199999999994972,
+    "final_dock_error_m": 0.010890588420349153,
+    "final_heading_error_deg": 4.572975686032163,
+    "initial_landmark_local_xyz": [
+      1.0560409347936872,
+      1.2787519871504724,
+      0.15694670848020378
+    ],
+    "position_rmse_m": 0.026037941086063787,
+    "updates": 160,
+    "passed": true,
+    "exit_code": 0
+  },
+  {
+    "charging_zone_entered": true,
+    "wheel_contact_distances_m": [
+      0.18683669033723724,
+      0.1951151609281917,
+      0.1878340136995321,
+      0.18078604928077288
+    ],
+    "zone_center_distance_m": 0.1694634544537836,
+    "zone_radius_m": 0.2,
+    "seed": 1,
+    "lidar_sigma": 0.006,
+    "camera_dropout_duration": 0.0,
+    "completed": true,
+    "collision": false,
+    "duration_s": 76.25000000000253,
+    "anchor_time_s": 34.19999999999644,
+    "final_dock_error_m": 0.010979662460997361,
+    "final_heading_error_deg": 4.5774645115748855,
+    "initial_landmark_local_xyz": [
+      1.2172049666221085,
+      -0.8859086502459823,
+      0.15767787555237267
+    ],
+    "position_rmse_m": 0.022498673343792422,
+    "updates": 169,
+    "passed": true,
+    "exit_code": 0
+  },
+  {
+    "charging_zone_entered": true,
+    "wheel_contact_distances_m": [
+      0.18882869570667057,
+      0.19721171592824466,
+      0.1880699964888711,
+      0.18123606125883668
+    ],
+    "zone_center_distance_m": 0.17080137380262989,
+    "zone_radius_m": 0.2,
+    "seed": 2,
+    "lidar_sigma": 0.006,
+    "camera_dropout_duration": 0.0,
+    "completed": true,
+    "collision": false,
+    "duration_s": 33.74999999999589,
+    "anchor_time_s": 8.799999999999775,
+    "final_dock_error_m": 0.010819614356419621,
+    "final_heading_error_deg": 3.5295257247003904,
+    "initial_landmark_local_xyz": [
+      0.5555167966460349,
+      0.5618492815060377,
+      0.15853179556872815
+    ],
+    "position_rmse_m": 0.0018422714411268318,
+    "updates": 120,
+    "passed": true,
+    "exit_code": 0
+  },
+  {
+    "charging_zone_entered": true,
+    "wheel_contact_distances_m": [
+      0.18053936460693087,
+      0.18720052332318537,
+      0.1982438208005159,
+      0.1897108008846262
+    ],
+    "zone_center_distance_m": 0.17092108944502793,
+    "zone_radius_m": 0.2,
+    "seed": 3,
+    "lidar_sigma": 0.006,
+    "camera_dropout_duration": 0.0,
+    "completed": true,
+    "collision": false,
+    "duration_s": 162.7500000000514,
+    "anchor_time_s": 122.39999999989497,
+    "final_dock_error_m": 0.011075759913768173,
+    "final_heading_error_deg": 4.659277467542741,
+    "initial_landmark_local_xyz": [
+      1.1772315377952693,
+      1.52419744837861,
+      0.15681110634720594
+    ],
+    "position_rmse_m": 0.011851865016736563,
+    "updates": 194,
+    "passed": true,
+    "exit_code": 0
+  },
+  {
+    "charging_zone_entered": true,
+    "wheel_contact_distances_m": [
+      0.18370350781806105,
+      0.1910310856111577,
+      0.19447144377756828,
+      0.1865610920536964
+    ],
+    "zone_center_distance_m": 0.1708736613634903,
+    "zone_radius_m": 0.2,
+    "seed": 4,
+    "lidar_sigma": 0.006,
+    "camera_dropout_duration": 0.0,
+    "completed": true,
+    "collision": false,
+    "duration_s": 36.949999999999804,
+    "anchor_time_s": 0.20000000000000018,
+    "final_dock_error_m": 0.01087820696768809,
+    "final_heading_error_deg": 1.3670737354805687,
+    "initial_landmark_local_xyz": [
+      1.4819899247764308,
+      1.0385360012330624,
+      0.15411015511067447
+    ],
+    "position_rmse_m": 0.028873206724234622,
+    "updates": 180,
+    "passed": true,
+    "exit_code": 0
+  },
+  {
+    "charging_zone_entered": true,
+    "wheel_contact_distances_m": [
+      0.18055610355284923,
+      0.18744516891548485,
+      0.19633050017480988,
+      0.18793842570433528
+    ],
+    "zone_center_distance_m": 0.16995081234161746,
+    "zone_radius_m": 0.2,
+    "seed": 5,
+    "lidar_sigma": 0.006,
+    "camera_dropout_duration": 0.0,
+    "completed": true,
+    "collision": false,
+    "duration_s": 314.6500000007767,
+    "anchor_time_s": 275.8000000005912,
+    "final_dock_error_m": 0.010901193848454041,
+    "final_heading_error_deg": 4.786646884673068,
+    "initial_landmark_local_xyz": [
+      0.582829497725214,
+      0.6855033201992462,
+      0.1588439500101109
+    ],
+    "position_rmse_m": 0.0023380333337086213,
+    "updates": 99,
+    "passed": true,
+    "exit_code": 0
+  },
+  {
+    "charging_zone_entered": true,
+    "wheel_contact_distances_m": [
+      0.18075517797295496,
+      0.18760548664284932,
+      0.19678030270912908,
+      0.18837694532144036
+    ],
+    "zone_center_distance_m": 0.17029866007586936,
+    "zone_radius_m": 0.2,
+    "seed": 0,
+    "lidar_sigma": 0.012,
+    "camera_dropout_duration": 0.0,
+    "completed": true,
+    "collision": false,
+    "duration_s": 67.15000000002374,
+    "anchor_time_s": 28.199999999994972,
+    "final_dock_error_m": 0.010890588420349153,
+    "final_heading_error_deg": 4.572975686032163,
+    "initial_landmark_local_xyz": [
+      1.0560409347936872,
+      1.2787519871504724,
+      0.15694670848020378
+    ],
+    "position_rmse_m": 0.026037941086063787,
+    "updates": 160,
+    "passed": true,
+    "exit_code": 0
+  },
+  {
+    "charging_zone_entered": true,
+    "wheel_contact_distances_m": [
+      0.18071551716501588,
+      0.18748551157027443,
+      0.19743538642224034,
+      0.18898003189169665
+    ],
+    "zone_center_distance_m": 0.17061188260347596,
+    "zone_radius_m": 0.2,
+    "seed": 0,
+    "lidar_sigma": 0.006,
+    "camera_dropout_duration": 4.0,
+    "completed": true,
+    "collision": false,
+    "duration_s": 67.30000000002339,
+    "anchor_time_s": 28.199999999994972,
+    "final_dock_error_m": 0.011161332442667154,
+    "final_heading_error_deg": 4.823597565379068,
+    "initial_landmark_local_xyz": [
+      1.0560409347936872,
+      1.2787519871504724,
+      0.15694670848020378
+    ],
+    "position_rmse_m": 0.024692612426305646,
+    "updates": 139,
+    "passed": true,
+    "exit_code": 0
+  },
+  {
+    "charging_zone_entered": true,
+    "wheel_contact_distances_m": [
+      0.1889397326125341,
+      0.19742785365849255,
+      0.18715483869920177,
+      0.1804064029718459
+    ],
+    "zone_center_distance_m": 0.1704232874420986,
+    "zone_radius_m": 0.2,
+    "seed": 1,
+    "lidar_sigma": 0.012,
+    "camera_dropout_duration": 0.0,
+    "completed": true,
+    "collision": false,
+    "duration_s": 74.10000000000754,
+    "anchor_time_s": 34.19999999999644,
+    "final_dock_error_m": 0.010792393322245516,
+    "final_heading_error_deg": 4.695804089583871,
+    "initial_landmark_local_xyz": [
+      1.2181704187060158,
+      -0.88616587862099,
+      0.15733693354967712
+    ],
+    "position_rmse_m": 0.023545895732727706,
+    "updates": 158,
+    "passed": true,
+    "exit_code": 0
+  },
+  {
+    "charging_zone_entered": true,
+    "wheel_contact_distances_m": [
+      0.18821936231880346,
+      0.19664897461051015,
+      0.18726590467976695,
+      0.18042397751799003
+    ],
+    "zone_center_distance_m": 0.1700339463079195,
+    "zone_radius_m": 0.2,
+    "seed": 1,
+    "lidar_sigma": 0.006,
+    "camera_dropout_duration": 4.0,
+    "completed": true,
+    "collision": false,
+    "duration_s": 74.55000000000649,
+    "anchor_time_s": 34.19999999999644,
+    "final_dock_error_m": 0.010907132276779684,
+    "final_heading_error_deg": 4.888296940078029,
+    "initial_landmark_local_xyz": [
+      1.2172049666221085,
+      -0.8859086502459823,
+      0.15767787555237267
+    ],
+    "position_rmse_m": 0.02281383077850109,
+    "updates": 142,
+    "passed": true,
+    "exit_code": 0
+  }
+]

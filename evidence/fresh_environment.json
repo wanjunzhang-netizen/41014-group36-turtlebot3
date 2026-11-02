@@ -1,0 +1,36 @@
+{
+  "date": "2026-11-02",
+  "python": "3.11",
+  "installation": "pip install -r requirements.txt in a new isolated venv",
+  "unit_tests": 11,
+  "unit_tests_passed": true,
+  "trial": {
+    "charging_zone_entered": true,
+    "wheel_contact_distances_m": [
+      0.18058901144093878,
+      0.187246505566226,
+      0.19830496084598218,
+      0.18977281687795708
+    ],
+    "zone_center_distance_m": 0.17098429423878755,
+    "zone_radius_m": 0.2,
+    "seed": 0,
+    "lidar_sigma": 0.006,
+    "camera_dropout_duration": 0.0,
+    "completed": true,
+    "collision": false,
+    "duration_s": 96.84999999995452,
+    "anchor_time_s": 5.999999999999506,
+    "final_dock_error_m": 0.011196604823073452,
+    "final_heading_error_deg": 4.777081454331288,
+    "initial_landmark_local_xyz": [
+      1.1750734285545006,
+      1.4485460754694017,
+      0.1563995655316777
+    ],
+    "position_rmse_m": 0.008924946541060233,
+    "updates": 209,
+    "passed": true
+  },
+  "scope": "Same Windows/OpenGL machine; no hardware test"
+}

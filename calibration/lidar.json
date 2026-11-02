@@ -1,0 +1,11 @@
+{
+  "method": "raw = scale * known_distance + offset; corrected = (raw-offset)/scale",
+  "scope": "MuJoCo simulated LiDAR; not physical hardware calibration",
+  "scale": 0.9996495030431886,
+  "offset_m": 0.0004356051562734613,
+  "train_samples": 600,
+  "holdout_samples": 500,
+  "holdout_raw_rmse_m": 0.01078003741869981,
+  "holdout_corrected_rmse_m": 0.01079423932446801,
+  "holdout_corrected_mean_error_m": 0.0010578151236814365
+}
