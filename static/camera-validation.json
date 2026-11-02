@@ -1,0 +1,138 @@
+{
+  "detected_count": 13,
+  "total_count": 15,
+  "rejected_count": 2,
+  "scope": "Known simulation calibration; rendered development-fixture verification, not hardware calibration",
+  "samples": [
+    {
+      "distance": 0.16,
+      "heading_offset_deg": -15.0,
+      "status": "SEARCH: MARKER NOT SEEN",
+      "detected": false
+    },
+    {
+      "distance": 0.16,
+      "heading_offset_deg": 0.0,
+      "status": "PIXELS -> RANGE + BEARING",
+      "detected": true,
+      "range_error_m": 0.0006500969864186024,
+      "bearing_error_deg": 0.005979770579626108,
+      "reprojection_rms_px": 0.08554249726714755
+    },
+    {
+      "distance": 0.16,
+      "heading_offset_deg": 15.0,
+      "status": "SEARCH: MARKER NOT SEEN",
+      "detected": false
+    },
+    {
+      "distance": 0.2,
+      "heading_offset_deg": -15.0,
+      "status": "PIXELS -> RANGE + BEARING",
+      "detected": true,
+      "range_error_m": 0.0007431272939956712,
+      "bearing_error_deg": -0.04420879837306077,
+      "reprojection_rms_px": 0.07750584992516897
+    },
+    {
+      "distance": 0.2,
+      "heading_offset_deg": 0.0,
+      "status": "PIXELS -> RANGE + BEARING",
+      "detected": true,
+      "range_error_m": 0.000677010230814179,
+      "bearing_error_deg": -0.008838735020472157,
+      "reprojection_rms_px": 0.025412864308685796
+    },
+    {
+      "distance": 0.2,
+      "heading_offset_deg": 15.0,
+      "status": "PIXELS -> RANGE + BEARING",
+      "detected": true,
+      "range_error_m": 0.000713124353316108,
+      "bearing_error_deg": 0.044596112650237045,
+      "reprojection_rms_px": 0.11051154697220315
+    },
+    {
+      "distance": 0.4,
+      "heading_offset_deg": -15.0,
+      "status": "PIXELS -> RANGE + BEARING",
+      "detected": true,
+      "range_error_m": 0.0013616761240914377,
+      "bearing_error_deg": -0.05412928917874184,
+      "reprojection_rms_px": 0.039614250477935924
+    },
+    {
+      "distance": 0.4,
+      "heading_offset_deg": 0.0,
+      "status": "PIXELS -> RANGE + BEARING",
+      "detected": true,
+      "range_error_m": 0.0019288217447568368,
+      "bearing_error_deg": -0.021853949069652143,
+      "reprojection_rms_px": 0.027389937657246118
+    },
+    {
+      "distance": 0.4,
+      "heading_offset_deg": 15.0,
+      "status": "PIXELS -> RANGE + BEARING",
+      "detected": true,
+      "range_error_m": 0.0014016246853236214,
+      "bearing_error_deg": 0.05352711648636398,
+      "reprojection_rms_px": 0.06139280482147592
+    },
+    {
+      "distance": 0.8,
+      "heading_offset_deg": -15.0,
+      "status": "PIXELS -> RANGE + BEARING",
+      "detected": true,
+      "range_error_m": 0.003112182338792069,
+      "bearing_error_deg": -0.013614891813858393,
+      "reprojection_rms_px": 0.12620840153557591
+    },
+    {
+      "distance": 0.8,
+      "heading_offset_deg": 0.0,
+      "status": "PIXELS -> RANGE + BEARING",
+      "detected": true,
+      "range_error_m": 0.005456463476628648,
+      "bearing_error_deg": 0.00013890746559348173,
+      "reprojection_rms_px": 0.11766247105157493
+    },
+    {
+      "distance": 0.8,
+      "heading_offset_deg": 15.0,
+      "status": "PIXELS -> RANGE + BEARING",
+      "detected": true,
+      "range_error_m": 0.0027748080094668337,
+      "bearing_error_deg": 0.017993857882695637,
+      "reprojection_rms_px": 0.07703788926603918
+    },
+    {
+      "distance": 1.0,
+      "heading_offset_deg": -15.0,
+      "status": "PIXELS -> RANGE + BEARING",
+      "detected": true,
+      "range_error_m": 0.0060785655363218005,
+      "bearing_error_deg": -0.014177243047354793,
+      "reprojection_rms_px": 0.06618679309635093
+    },
+    {
+      "distance": 1.0,
+      "heading_offset_deg": 0.0,
+      "status": "PIXELS -> RANGE + BEARING",
+      "detected": true,
+      "range_error_m": 0.00389516814954316,
+      "bearing_error_deg": 0.002306365221041896,
+      "reprojection_rms_px": 0.11504553964472013
+    },
+    {
+      "distance": 1.0,
+      "heading_offset_deg": 15.0,
+      "status": "PIXELS -> RANGE + BEARING",
+      "detected": true,
+      "range_error_m": 0.00561661493584209,
+      "bearing_error_deg": -0.0025530828025282616,
+      "reprojection_rms_px": 0.09207073654023938
+    }
+  ],
+  "passed": true
+}
