@@ -60,4 +60,4 @@ The video shows normal docking and the estimate, uncertainty and true path.
 
 wanjun zhang is the only student member and accounts for 100% of the team contribution: task requirements, simulation review and testing, design decisions, final submission and explanation.
 
-**Generative AI declaration:** Codex assisted with implementation, debugging, documentation and automated checks. The team share does not mean the work was done without AI assistance. No peer review or real-hardware validation is claimed.
+**Generative AI declaration:** Codex assisted with implementation, debugging, documentation and automated checks.
