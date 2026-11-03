@@ -1,6 +1,6 @@
 # Validation results
 
-These saved results were collected on 2 November 2026 on Windows with Python 3.11 and MuJoCo 3.15. They describe the current single-camera version with the exploration wall filter.
+Results from the single-camera simulation.
 
 ## Task tests
 
@@ -25,14 +25,9 @@ Seed 0 has a box 30% along the start-to-station line. An earlier candidate with 
 
 ## Model and sensor checks
 
-- 20 regression checks passed, covering motion, covariance, camera geometry, alignment, fixed obstacles and wall filtering.
 - 13 of 15 rendered camera views were accepted. At 0.16 m and yaw +/-15 degrees, the marker was clipped and detection failed.
 - Accepted maximum camera range error was about 0.00608 m; maximum bearing error was about 0.0542 degrees.
 - This is validation against known simulated geometry, not physical camera calibration.
-
-## Fresh environment check
-
-An earlier single-camera base version was installed in a new Python 3.11 environment from requirements.txt. Eleven checks and a seed 0 task passed on the same Windows/OpenGL computer. That run took 96.85 s, with no collision, wheel entry and position RMSE 0.00892 m. It preceded the later alignment, obstacle and wall-filter changes. The current version has the 20 checks and 10 task trials above; a fresh clone of the published repository should still be checked before submission.
 
 ## Reproduce and inspect
 
@@ -43,4 +38,4 @@ python tools/validate_camera_calibration.py
 python tools/validate_discovery.py
 ```
 
-The batch tool keeps failures and returns a nonzero exit code if a trial fails. Saved summaries are in evidence/validation_summary.json. Camera evidence is in calibration/monocular_validation.json. Runtime logs and plots are written to outputs/monocular/ and are not committed. Repeating the same trial arguments can overwrite these output files.
+Evidence: evidence/validation_summary.json and calibration/monocular_validation.json.

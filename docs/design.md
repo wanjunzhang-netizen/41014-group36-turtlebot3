@@ -6,26 +6,7 @@ A TurtleBot3 drives in a 3 by 3 metre room with six obstacles. It finds an ArUco
 
 The robot and station positions change with the random seed. Seed 0 is a repeatable demonstration: an orange box is placed 30% of the way from the start to the station. The other five obstacles remain. The robot can drive forward or turn in place; it does not drive backwards.
 
-## Where the code is
-
-|File or folder|What it does|
-|---|---|
-|main.py|Starts the program.|
-|src/discovery/scene.py|Creates the room, obstacles, start and station.|
-|models/02_robot.xml|Defines the robot and sensor mounting positions.|
-|src/perception/|Simulates camera, LiDAR and other sensor readings.|
-|src/discovery/association.py|Finds marker corners in the camera image and measures the marker.|
-|src/estimation/ekf.py|Contains the robot motion model.|
-|src/discovery/estimator.py|Combines wheel motion and camera measurements in the joint EKF.|
-|src/control/lqr.py|Corrects path tracking errors.|
-|src/control/avoidance.py|Checks safe paths using LiDAR.|
-|src/discovery/navigation.py|Chooses search, approach, alignment and docking actions.|
-|src/discovery/app.py|Runs the simulation, shows plots and saves results.|
-|tests/ and tools/|Check the model, sensors and complete task.|
-
 ## Coordinate frames
-
-A frame is a set of axes used to describe a position.
 
 ```mermaid
 graph TD
@@ -102,19 +83,10 @@ The stages are search, approach, align and final docking. The robot enters align
 
 Final speed is at most 0.025 m/s and turn speed at most 0.3 rad/s. Completion requires estimated target error below 0.012 m, estimated wheel entry, heading error below 5 degrees, recent vision and a 2-second hold. A separate evaluation checks true wheel contact and errors. There is no guarantee of reaching the goal in every possible room.
 
-## Ground truth and the four plots
+## Ground truth
 
 The simulator uses its internal state to generate sensors. The controller does not receive true robot or station coordinates. Navigator.command receives estimates and sensor data. True pose and collision information are used separately to score the trial and draw evaluation plots.
 
-|Plot|Plain explanation|
-|---|---|
-|Camera|The image used to find the marker corners.|
-|LiDAR|Horizontal is metres to the robot's right; vertical is metres ahead. Points are nearby surfaces.|
-|Path|Both axes are position in metres in O. Blue is the EKF path. Black is the true path, for evaluation only.|
-|Error and uncertainty|Horizontal is time in seconds; vertical is metres. Blue is actual position error. Purple is 2 sqrt(Pxx+Pyy).|
+The uncertainty curve is 2 sqrt(Pxx+Pyy). It is not an exact two-dimensional 95% confidence bound.
 
-The purple line describes estimated uncertainty. It is not an exact two-dimensional 95% confidence bound. Blue staying below purple is not enough to prove a statistically consistent filter.
-
-## Course basis and extensions
-
-Assessment 3 informed exact-arc motion, the Joseph EKF update and LQR tracking. Marker PnP, joint landmark initialization, scene generation and docking logic are project extensions. Assessment 2 ICP/SIFT is not used. Third-party sources and asset licenses are listed in THIRD_PARTY.md.
+Course code adapted from Assessment 3: exact-arc motion, Joseph EKF update and LQR. Third-party sources and licenses: [THIRD_PARTY.md](../THIRD_PARTY.md).

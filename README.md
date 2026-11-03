@@ -22,12 +22,6 @@ py -3.11 -m venv .venv
 .\.venv\Scripts\python.exe main.py --seed 0
 ```
 
-After activating the environment, run a demo with one command:
-
-```powershell
-python main.py --seed 0
-```
-
 Other trials:
 
 ```powershell
@@ -36,21 +30,7 @@ python main.py --seed 0 --camera-dropout 4
 python main.py --seed 0 --lidar-sigma 0.012
 ```
 
-No seed means a new random room. Click the dashboard and press Space or P to pause. Close the viewer normally to save results in outputs/monocular/. Repeated arguments overwrite the same output files. Headless tests still need OpenGL. Models are included; no ROS installation is needed.
-
-## Files
-
-| Location          | Purpose                                                   |
-| ----------------- | --------------------------------------------------------- |
-| main.py and src/  | Program entry point and simulation code.                  |
-| models/           | Robot, room and licensed model assets.                    |
-| calibration/      | Sensor settings and calibration checks.                   |
-| tests/ and tools/ | Automated checks and trial evaluation.                    |
-| evidence/         | Saved test summaries and dashboard image.                 |
-| docs/design.md    | Model, frames, EKF, controller and parameters.            |
-| docs/results.md   | Measured results and limits of the tests.                 |
-| website/          | Project page source, published to the github_page branch. |
-| requirements.txt  | Python packages needed to run the program.                |
+No seed gives a new random room. Space/P pauses the dashboard. Results are saved in outputs/monocular/.
 
 ## Demonstration video
 
@@ -61,3 +41,5 @@ The video shows normal docking and the estimate, uncertainty and true path.
 wanjun zhang is the only student member and accounts for 100% of the team contribution: task requirements, simulation review and testing, design decisions, final submission and explanation.
 
 **Generative AI declaration:** Codex assisted with implementation, debugging, documentation and automated checks.
+
+Course code adapted from Assessment 3: motion model, Joseph EKF update and LQR. Third-party sources and licenses: [THIRD_PARTY.md](THIRD_PARTY.md).
