@@ -6,6 +6,7 @@ Track A. Simulation only, using MuJoCo.
 
 - [Code](https://github.com/wanjunzhang-netizen/41014-group36-turtlebot3)
 - [Project page](https://wanjunzhang-netizen.github.io/41014-group36-turtlebot3/)
+- [Demonstration video](https://wanjunzhang-netizen.github.io/41014-group36-turtlebot3/#demo)
 - [Design and parameter values](docs/design.md)
 - [Validation results](docs/results.md)
 
@@ -57,14 +58,16 @@ The website uses saved evidence from evidence/ and calibration/. When results ch
 
 ## Demonstration video
 
-The actual video is still pending. Before submission, add a video of at most five minutes to the project page. It must show a completed task, a varied or disturbed trial, the estimated and true state, and uncertainty. Label any speed-up or editing.
+The student-recorded video is embedded on the project page and stored in website/static/videos/demo.mp4. Duration: 4 min 58.5 s. Only silent padding at the beginning and end was removed. Narration and the simulation trial are unchanged and not sped up.
+
+The video shows normal docking and the estimate, uncertainty and true path. It does not show a separate varied or disturbed trial, which the v2 brief requests. Numerical disturbance tests are available in the Results section; these do not replace that missing video evidence.
 
 ## Individual contribution
 
 wanjun zhang is the only student member and accounts for 100% of the team contribution: task requirements, simulation review and testing, design decisions, final submission and explanation.
 
-Codex assisted with implementation, debugging, documentation and automated checks. The team share does not mean the work was done without AI assistance. No peer review or real-hardware validation is claimed.
+**Generative AI declaration:** Codex assisted with implementation, debugging, documentation and automated checks. The team share does not mean the work was done without AI assistance. No peer review or real-hardware validation is claimed.
 
-## Sources
+## Acknowledgements
 
 Assessment 3 informed the motion model, Joseph EKF and LQR. Monocular PnP, joint landmark initialization and docking logic are project extensions. Assessment 2 ICP/SIFT is not used. See [third-party sources and licenses](THIRD_PARTY.md). Original asset licenses are kept with the models.
