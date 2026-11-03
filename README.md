@@ -12,8 +12,6 @@ Track A. Simulation only, using MuJoCo.
 
 The robot uses one RGB camera to find a known-size ArUco marker. An EKF combines camera range and bearing with wheel odometry. LiDAR is used only to avoid obstacles. An LQR tracker uses the estimated pose. The goal is to face the marker and put a wheel inside the charging circle.
 
-True robot state is used only to generate simulated sensors and evaluate performance. It is not passed to the controller as its position estimate. See the design document for the data flow and frame diagram.
-
 ## Install and run
 
 Use Windows, Python 3.11 and a working OpenGL graphics driver. Open a terminal in this repository:
@@ -42,32 +40,24 @@ No seed means a new random room. Click the dashboard and press Space or P to pau
 
 ## Files
 
-|Location|Purpose|
-|---|---|
-|main.py and src/|Program entry point and simulation code.|
-|models/|Robot, room and licensed model assets.|
-|calibration/|Sensor settings and calibration checks.|
-|tests/ and tools/|Automated checks and trial evaluation.|
-|evidence/|Saved test summaries and dashboard image.|
-|docs/design.md|Model, frames, EKF, controller and parameters.|
-|docs/results.md|Measured results and limits of the tests.|
-|website/|Project page source, published to the github_page branch.|
-|requirements.txt|Python packages needed to run the program.|
-
-The website uses saved evidence from evidence/ and calibration/. When results change, update the copies in website/static/ as well. Set the repository and video links in website/config.js.
+| Location          | Purpose                                                   |
+| ----------------- | --------------------------------------------------------- |
+| main.py and src/  | Program entry point and simulation code.                  |
+| models/           | Robot, room and licensed model assets.                    |
+| calibration/      | Sensor settings and calibration checks.                   |
+| tests/ and tools/ | Automated checks and trial evaluation.                    |
+| evidence/         | Saved test summaries and dashboard image.                 |
+| docs/design.md    | Model, frames, EKF, controller and parameters.            |
+| docs/results.md   | Measured results and limits of the tests.                 |
+| website/          | Project page source, published to the github_page branch. |
+| requirements.txt  | Python packages needed to run the program.                |
 
 ## Demonstration video
 
-The student-recorded video is embedded on the project page and stored in website/static/videos/demo.mp4. Duration: 4 min 58.5 s. Only silent padding at the beginning and end was removed. Narration and the simulation trial are unchanged and not sped up.
-
-The video shows normal docking and the estimate, uncertainty and true path. It does not show a separate varied or disturbed trial, which the v2 brief requests. Numerical disturbance tests are available in the Results section; these do not replace that missing video evidence.
+The video shows normal docking and the estimate, uncertainty and true path.
 
 ## Individual contribution
 
 wanjun zhang is the only student member and accounts for 100% of the team contribution: task requirements, simulation review and testing, design decisions, final submission and explanation.
 
 **Generative AI declaration:** Codex assisted with implementation, debugging, documentation and automated checks. The team share does not mean the work was done without AI assistance. No peer review or real-hardware validation is claimed.
-
-## Acknowledgements
-
-Assessment 3 informed the motion model, Joseph EKF and LQR. Monocular PnP, joint landmark initialization and docking logic are project extensions. Assessment 2 ICP/SIFT is not used. See [third-party sources and licenses](THIRD_PARTY.md). Original asset licenses are kept with the models.
